@@ -1,0 +1,207 @@
+/* App.css */
+
+/* Theme Styles */
+.container.light {
+  background-color:  white;;
+  color: black;
+}
+
+.container.dark {
+  background-color: #121212;
+  color: white;
+}
+
+.card {
+  background-color: inherit;
+}
+
+.header {
+  color: inherit;
+}
+
+.input-style {
+  height: 30px;
+  width: 86%;
+  border-radius: 10px;
+  padding: 5px;
+  border: 1px solid transparent;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container.light .input-style {
+  background: #e3d9d9;
+  color: rgb(35, 33, 33);
+}
+
+.container.dark .input-style {
+  background: white;
+  color: black;
+}
+
+.listStyle {
+  margin-top: 10px;
+  padding: 15px;
+  list-style: none;
+  margin-left: -30px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container.light .listStyle {
+  background: #e5dfdf;
+  color: rgb(37, 35, 35);
+  box-shadow: none;
+}
+
+.container.dark .listStyle {
+  background-color: inherit;
+  box-shadow: inset 0 0 5px gold;
+  color: inherit;
+}
+
+.btn {
+  margin-left: 10px;
+  height: 45px;
+  width: 45px;
+  font-size: 20px;
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container.light .btn {
+  background-color: #1F2936; /* Darker background in light mode */
+  color: white;
+}
+
+.container.dark .btn {
+  background-color: rgb(131, 178, 61); /* Lighter background in dark mode */
+  color: black;
+}
+
+.theme-toggle {
+  margin: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: inherit;
+  color: inherit;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container.light .theme-toggle {
+  background-color: #333;
+  color: white;
+}
+
+.container.dark .theme-toggle {
+  background-color: white;
+  color: black;
+}
+
+.header-text {
+  padding: 15px;
+  font-size: 50px;
+  color: white;
+  height: 100px;
+  width: 100px;
+  border: 1px solid white;
+  background-color: rgb(131, 178, 61);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container.light .header-text {
+  background-color: #8e8080;
+  color: white;
+  border-color: #333;
+}
+
+.container.dark .header-text {
+  background-color: rgb(131, 178, 61);
+  color: black;
+  border-color: rgb(131, 178, 61);
+}
+
+/* Original Styles */
+.appBG {
+  background-color: black;
+}
+
+.container {
+  padding: 10% 30%;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.card {
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.task-done {
+  display: flex;
+}
+
+.numbers {
+  padding-top: 28px;
+  font-size: 20px;
+}
+.container.light .header{
+  box-shadow: inset 0 0 5px rgb(37, 36, 35);
+}
+.header {
+  align-items: center;
+  padding: 15px;
+  box-shadow: inset 0 0 5px gold;
+  border-radius: 10px;
+}
+
+.header-top p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.task-list-part {
+  background-color: inherit;
+}
+
+.task-list-part h1 {
+  color: inherit;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.icon {
+  color: rgb(137, 122, 37);
+}
+
+.form {
+  padding: 15px;
+}
+
+.task-list {
+  color: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-text {
+  font-size: 30px;
+}
