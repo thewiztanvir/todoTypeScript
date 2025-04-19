@@ -1,31 +1,17 @@
 /* App.css */
 
-/* Theme Styles */
+/*=============================
+=         THEME STYLES       =
+=============================*/
+
 .container.light {
-  background-color:  white;;
+  background-color: white;
   color: black;
 }
 
 .container.dark {
   background-color: #121212;
   color: white;
-}
-
-.card {
-  background-color: inherit;
-}
-
-.header {
-  color: inherit;
-}
-
-.input-style {
-  height: 30px;
-  width: 86%;
-  border-radius: 10px;
-  padding: 5px;
-  border: 1px solid transparent;
-  transition: background-color 0.3s, color 0.3s;
 }
 
 .container.light .input-style {
@@ -36,14 +22,6 @@
 .container.dark .input-style {
   background: white;
   color: black;
-}
-
-.listStyle {
-  margin-top: 10px;
-  padding: 15px;
-  list-style: none;
-  margin-left: -30px;
-  transition: background-color 0.3s, color 0.3s;
 }
 
 .container.light .listStyle {
@@ -58,34 +36,14 @@
   color: inherit;
 }
 
-.btn {
-  margin-left: 10px;
-  height: 45px;
-  width: 45px;
-  font-size: 20px;
-  border-radius: 50%;
-  transition: background-color 0.3s, color 0.3s;
-}
-
 .container.light .btn {
-  background-color: #1F2936; /* Darker background in light mode */
+  background-color: #1F2936;
   color: white;
 }
 
 .container.dark .btn {
-  background-color: rgb(131, 178, 61); /* Lighter background in dark mode */
+  background-color: rgb(131, 178, 61);
   color: black;
-}
-
-.theme-toggle {
-  margin: 10px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: inherit;
-  color: inherit;
-  transition: background-color 0.3s, color 0.3s;
 }
 
 .container.light .theme-toggle {
@@ -96,23 +54,6 @@
 .container.dark .theme-toggle {
   background-color: white;
   color: black;
-}
-
-.header-text {
-  padding: 15px;
-  font-size: 50px;
-  color: white;
-  height: 100px;
-  width: 100px;
-  border: 1px solid white;
-  background-color: rgb(131, 178, 61);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  box-sizing: border-box;
-  transition: background-color 0.3s, color 0.3s;
 }
 
 .container.light .header-text {
@@ -127,9 +68,27 @@
   border-color: rgb(131, 178, 61);
 }
 
-/* Original Styles */
+.container.light .header {
+  box-shadow: inset 0 0 5px rgb(37, 36, 35);
+}
+
+
+/*=============================
+=          COMPONENTS        =
+=============================*/
+
 .appBG {
   background-color: black;
+}
+
+.card {
+  background-color: inherit;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.completed {
+  text-decoration: line-through;
 }
 
 .container {
@@ -139,32 +98,95 @@
   background-color: black;
 }
 
-.card {
-  padding: 15px;
-  border-radius: 20px;
+.form {
+  padding: 15px 0;
 }
 
-.task-done {
+.header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  box-shadow: inset 0 0 5px gold;
+  border-radius: 10px;
+  color: inherit;
+}
+
+.header-top p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 15px;
+  font-size: 30px;
+  height: 100px;
+  width: 100px;
+  border: 1px solid white;
+  background-color: rgb(131, 178, 61);
+  border-radius: 50%;
+  transition: background-color 0.3s, color 0.3s;
+}
+.icons{
+  margin: 0 5px;
+}
+.icon {
+  color: rgb(137, 122, 37);
+}
+
+.input-style {
+  height: 40px;
+  width: 84%;
+  border-radius: 10px;
+  padding: 4px 12px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  margin: 8px 0;
+}
+
+.container.light .input-style:focus {
+  outline: none;
+  border-color: #1F2936;
+  box-shadow: 0 0 5px rgba(31, 41, 54, 0.5);
+}
+
+.container.dark .input-style:focus {
+  outline: none;
+  border-color: gold;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.listStyle {
+  margin-top: 10px;
+  margin-left: -40px;
+  padding: 15px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: inset 0 0 5px gold;
+  list-style: none;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .numbers {
   padding-top: 28px;
   font-size: 20px;
 }
-.container.light .header{
-  box-shadow: inset 0 0 5px rgb(37, 36, 35);
-}
-.header {
-  align-items: center;
-  padding: 15px;
-  box-shadow: inset 0 0 5px gold;
-  border-radius: 10px;
+
+.task-done {
+  display: flex;
 }
 
-.header-top p {
-  font-size: 20px;
-  font-weight: bold;
+.task-list {
+  color: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .task-list-part {
@@ -177,31 +199,106 @@
   padding-left: 10px;
 }
 
-.icon {
-  color: rgb(137, 122, 37);
-}
-
-.form {
-  padding: 15px;
-}
-
-.task-list {
+.theme-toggle {
+  margin-left: 15px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: inherit;
   color: inherit;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.completed {
-  text-decoration: line-through;
+.btn {
+  margin-left: 10px;
+  height: 50px;
+  width: 50px;
+  font-size: 20px;
+  border-radius: 50%;
+  transition: all 0.1s ease-in-out;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.btn:active {
+  transform: scale(0.85);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 215, 0, 0.3);
 }
 
-.header-text {
-  font-size: 30px;
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+@media screen and (max-width: 900px) {
+  .container {
+    padding: 10% 10%;
+  }
+  .header-text {
+    width: 90px;
+    height: 90px;
+    font-size: 40px;
+  }
+  .input-style {
+    width: 85%;
+    
+  }
+  .listStyle {
+    font-size: 25px;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 10% 5%;
+  }
+
+  .header-text {
+    width: 80px;
+    height: 80px;
+    font-size: 25px;
+  }
+
+  .input-style {
+    width: 74%;
+    font-size: 18px;
+  }
+
+  .btn {
+    height: 50px;
+    width: 50px;
+    font-size: 18px;
+    border-radius: 12px;
+  }
+
+  .header-top p {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 10% 5%;
+  }
+  .header-text {
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+  }
+  .input-style {
+    width: 71%;
+    font-size: 16px;
+  }
+  .listStyle {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .input-style {
+    width: 69%;
+    font-size: 16px;
+  }
 }

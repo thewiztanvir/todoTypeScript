@@ -18,23 +18,25 @@ interface TodoItemProps {
 
 function TodoItem({ todo, index, onEdit, onDelete, onComplete }: TodoItemProps) {
   return (
-    <li className={`task-list ${todo.completed ? "completed" : ""} listStyle`}>
-      <input
+    <div className={`task-list ${todo.completed ? "completed" : ""} listStyle`}>
+       <div>
+       <input
         className="checkbox"
-        type="radio"
+        type="checkbox"
         checked={todo.completed}
         onChange={() => onComplete(index)}
       />
       {todo.text}
-      <div>
-        <button onClick={() => onEdit(index)}>
+      </div>
+      <div >
+        <button className="icons" onClick={() => onEdit(index)}>
           <FontAwesomeIcon icon={faEdit} className="icon" />
         </button>
-        <button onClick={() => onDelete(index)}>
+        <button className="icons" onClick={() => onDelete(index)}>
           <FontAwesomeIcon icon={faTrashAlt} className="icon" />
         </button>
       </div>
-    </li>
+    </div>
   );
 }
 

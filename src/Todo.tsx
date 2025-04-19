@@ -84,7 +84,7 @@ function TodoApp(props: TodoAppProps) {
         <div className="task-list-part">
           <form className="form" onSubmit={handleFormSubmit}>
             <input
-              placeholder="Write Your Next Task"
+              placeholder="✨ Add an awesome task..."
               type="text"
               value={currentInputValue}
               onChange={handleInputChange}
