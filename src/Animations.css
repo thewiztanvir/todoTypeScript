@@ -1,0 +1,50 @@
+/* Animations.css - All animation keyframes and animation classes */
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(-120px) scaleY(1.8) scaleX(0.7) rotate(-8deg); filter: blur(2px); }
+  60% { opacity: 1; transform: translateY(15px) scaleY(0.95) scaleX(1.05) rotate(2deg); filter: blur(0); }
+  80% { transform: translateY(-4px) scaleY(1.02) scaleX(0.98) rotate(-1deg); }
+  100% { opacity: 1; transform: translateY(0) scaleY(1) scaleX(1) rotate(0deg); filter: blur(0); }
+}
+
+@keyframes ultraCoolDelete {
+  0% { opacity: 1; filter: none; transform: scale(1) rotate(0deg) skewX(0deg) skewY(0deg) translateX(0); box-shadow: 0 0 0px #fff0; clip-path: inset(0% 0% 0% 0%); }
+  15% { box-shadow: 0 0 12px #ffe06688; filter: brightness(1.1) drop-shadow(0 0 8px #ffe066); opacity: 0.95; }
+  35% { filter: brightness(1.15) blur(0.5px) drop-shadow(0 0 12px #ffe066); transform: scale(1.04, 0.98) rotate(-2deg) skewX(-4deg) skewY(1deg) translateX(8px); box-shadow: 0 0 18px #ffe066cc; opacity: 0.85; }
+  55% { filter: brightness(1.2) blur(1px) drop-shadow(0 0 16px #fbbf24); transform: scale(0.98, 1.05) rotate(3deg) skewX(7deg) skewY(-3deg) translateX(24px); box-shadow: 0 0 24px #ff6f6188; clip-path: inset(0% 30% 0% 0%); opacity: 0.7; }
+  75% { filter: brightness(1.25) blur(2px) grayscale(0.3) drop-shadow(0 0 20px #fbbf24); transform: scale(1.08, 0.92) rotate(-7deg) skewX(-10deg) skewY(4deg) translateX(48px); box-shadow: 0 0 28px #17a2b888; clip-path: inset(0% 70% 0% 0%); opacity: 0.4; }
+  90% { filter: brightness(1.3) blur(3px) grayscale(0.7) drop-shadow(0 0 24px #fbbf24); transform: scale(0.92, 1.12) rotate(10deg) skewX(14deg) skewY(-6deg) translateX(72px); box-shadow: 0 0 0px #fff0; clip-path: inset(0% 100% 0% 0%); opacity: 0.15; }
+  100% { opacity: 0; filter: brightness(1.3) blur(4px) grayscale(1) drop-shadow(0 0 0px #fff0); transform: scale(0.8, 1.2) rotate(14deg) skewX(18deg) skewY(-8deg) translateX(90px); box-shadow: 0 0 0px #fff0; clip-path: inset(0% 100% 0% 0%); }
+}
+
+@keyframes ultraCoolUpdate {
+  0% { background: #b2f5ea; box-shadow: 0 0 0px 0px #38b2ac; filter: none; transform: scale(1) rotate(0deg); }
+  20% { background: #81e6d9; box-shadow: 0 0 16px 4px #38b2ac; filter: brightness(1.2); transform: scale(1.05) rotate(-2deg); }
+  40% { background: #4fd1c5; box-shadow: 0 0 32px 8px #38b2ac; filter: brightness(1.4) blur(1px); transform: scale(1.1) rotate(2deg); }
+  60% { background: #f6e05e; box-shadow: 0 0 48px 12px #ecc94b; filter: brightness(1.6) blur(2px); transform: scale(1.15) rotate(-4deg); }
+  80% { background: #fbb6ce; box-shadow: 0 0 32px 8px #ed64a6; filter: brightness(1.3) blur(1px); transform: scale(1.05) rotate(2deg); }
+  100% { background: inherit; box-shadow: 0 0 0px 0px #38b2ac; filter: none; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes countUpEffect {
+  0% { transform: scale(1) rotate(0deg); color: inherit; opacity: 1; filter: none; text-shadow: none; }
+  20% { transform: scale(1.4) rotate(-10deg); color: #f6e05e; opacity: 0.85; filter: drop-shadow(0 0 12px #ffe066); text-shadow: 0 0 8px #ffe066, 0 0 16px #ffd700; }
+  40% { transform: scale(1.2) rotate(8deg); color: #ffd700; opacity: 1; filter: drop-shadow(0 0 18px #ffd700); text-shadow: 0 0 12px #ffd700, 0 0 24px #fff9c4; }
+  60% { transform: scale(1.1) rotate(-6deg); color: #fff9c4; opacity: 0.95; filter: drop-shadow(0 0 10px #fff9c4); text-shadow: 0 0 8px #fff9c4, 0 0 16px #ffe066; }
+  80% { transform: scale(1.05) rotate(3deg); color: #f6e05e; opacity: 1; filter: drop-shadow(0 0 6px #f6e05e); text-shadow: 0 0 6px #f6e05e, 0 0 12px #ffd700; }
+  100% { transform: scale(1) rotate(0deg); color: inherit; opacity: 1; filter: none; text-shadow: none; }
+}
+
+@keyframes star-burst-anim {
+  0% { opacity: 0; transform: scale(0.2) rotate(-30deg); filter: blur(2px); }
+  40% { opacity: 1; transform: scale(1.2) rotate(8deg); filter: blur(0); }
+  80% { opacity: 0.9; transform: scale(1.05) rotate(-8deg); filter: blur(0.5px); }
+  100% { opacity: 0; transform: scale(0.7) rotate(24deg); filter: blur(2px); }
+}
+
+/* Animation classes */
+.todo-animate { animation: fadeInUp 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+.vanish { animation: ultraCoolDelete 0.8s cubic-bezier(0.4, 0.2, 0.2, 1) forwards; will-change: opacity, transform, filter, background, box-shadow, clip-path; }
+.edit-updated { animation: ultraCoolUpdate 1s cubic-bezier(0.4, 0.2, 0.2, 1); z-index: 1; position: relative; }
+.count-animate { display: inline-block; animation: countUpEffect 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); }
+.star-burst { animation: star-burst-anim 1.2s cubic-bezier(.23,1.12,.32,1.01) both; opacity: 0.85; filter: drop-shadow(0 0 12px #fff8) drop-shadow(0 0 24px #ffe06688); will-change: transform, opacity; }
