@@ -68,7 +68,7 @@ function TodoItem({ todo, index, onEdit, onDelete, onComplete, isNew, isDeleting
       setShowDust(true);
       setTimeout(() => setShowDust(false), 700);
     }
-  }, [isDeleting, theme]);
+  }, [isDeleting, theme, getRandomParticles]);
 
   return (
     <div
