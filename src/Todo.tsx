@@ -38,11 +38,17 @@ function TodoApp(props: TodoAppProps) {
     }
     setCurrentInputValue("");
   };
+// animation
 
-  // Adds a new todo
-  const addNewTodo = () => {
-    setTodos([...todos, { text: currentInputValue, completed: false }]);
-  };
+const [lastAddedIndex, setLastAddedIndex] = useState<number | null>(null);
+
+const addNewTodo = () => {
+  setTodos((prev) => {
+    const newTodos = [...prev, { text: currentInputValue, completed: false }];
+    setLastAddedIndex(newTodos.length - 1);
+    return newTodos;
+  });
+};
 
   // Updates an existing todo
   const updateExistingTodo = () => {
@@ -107,6 +113,7 @@ function TodoApp(props: TodoAppProps) {
                 onEdit={editTodo}
                 onDelete={deleteTodo}
                 onComplete={toggleTodoComplete}
+                isNew={index === lastAddedIndex}
               />
             ))}
           </ul>
