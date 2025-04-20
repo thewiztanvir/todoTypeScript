@@ -1,5 +1,5 @@
 // src/Todo.tsx
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./App.css";
 import Header from "./Header";
 import ThemeToggleButton from "./ThemeToggleButton";
@@ -25,6 +25,14 @@ function TodoApp(props: TodoAppProps) {
   const [lastAddedIndex, setLastAddedIndex] = useState<number | null>(null);
   const [deletingIndex, setDeletingIndex] = useState<number | null>(null);
   const [editUpdatedIndex, setEditUpdatedIndex] = useState<number | null>(null);
+  const [showCongrats, setShowCongrats] = useState(false);
+
+  useEffect(() => {
+    if (todos.length > 0 && todos.every((todo) => todo.completed)) {
+      setShowCongrats(true);
+      setTimeout(() => setShowCongrats(false), 2500);
+    }
+  }, [todos]);
 
   // Handles input field changes
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -90,6 +98,27 @@ function TodoApp(props: TodoAppProps) {
 
   return (
     <div className={`container ${theme}`}>
+      {showCongrats && (
+        <div className="congrats-overlay-full">
+          <div className="fireworks-stars">
+            {Array.from({ length: 18 }).map((_, i) => (
+              <span
+                key={i}
+                className="star-burst"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  fontSize: `${1.2 + Math.random() * 2.5}rem`,
+                  color: `hsl(${Math.random() * 360}, 90%, 70%)`,
+                  animationDelay: `${Math.random() * 0.5}s`
+                }}
+              >
+                ✨
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
       <ThemeToggleButton />
       <div className="card">
         <Header todos_completed={countIncompleteTodos} total_todos={todos.length} />

@@ -578,6 +578,264 @@
   }
 }
 
+.congrats-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.18);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: fadeInCongrats 0.5s;
+}
+
+@keyframes fadeInCongrats {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.congrats-message {
+  background: none;
+  color: #fff;
+  font-size: 2.8rem;
+  font-weight: bold;
+  border-radius: 24px;
+  padding: 0;
+  box-shadow: none;
+  text-align: center;
+  position: relative;
+  overflow: visible;
+  animation: popCongrats 0.7s cubic-bezier(.23,1.12,.32,1.01);
+  letter-spacing: 2px;
+  text-shadow: 0 2px 16px #000, 0 0 32px #ffe066;
+}
+
+@keyframes popCongrats {
+  0% { transform: scale(0.7) rotate(-8deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.confetti {
+  position: absolute;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: 0;
+  width: 16px;
+  height: 24px;
+  border-radius: 6px;
+  opacity: 0.92;
+  animation: confetti-fall 2.2s cubic-bezier(.23,1.12,.32,1.01) forwards;
+  box-shadow: 0 0 8px #fff8, 0 0 16px #ffe06688;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-60px) rotate(-30deg) scale(1.2);
+    opacity: 0.7;
+  }
+  40% {
+    transform: translateY(120px) rotate(12deg) scale(1.1);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(320px) rotate(-8deg) scale(0.95);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(600px) rotate(24deg) scale(0.7);
+    opacity: 0;
+  }
+}
+
+.fireworks {
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.firework {
+  position: absolute;
+  width: 0; height: 0;
+  animation: firework-burst 1.2s cubic-bezier(.23,1.12,.32,1.01) both;
+}
+
+@keyframes firework-burst {
+  0% { opacity: 0; transform: scale(0.5); }
+  30% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.7; transform: scale(1); }
+}
+
+.firework-particle {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 10px; height: 18px;
+  border-radius: 6px;
+  opacity: 0.92;
+  transform: rotate(calc(var(--i) * 25deg)) translateY(-10px) scale(0.7);
+  animation: firework-particle-explode 1.2s cubic-bezier(.23,1.12,.32,1.01) both;
+  animation-delay: inherit;
+  box-shadow: 0 0 8px #fff8, 0 0 16px #ffe06688;
+}
+
+@keyframes firework-particle-explode {
+  0% {
+    opacity: 0.7;
+    transform: rotate(calc(var(--i) * 25deg)) translateY(-10px) scale(0.7);
+  }
+  40% {
+    opacity: 1;
+    transform: rotate(calc(var(--i) * 25deg)) translateY(-60px) scale(1.2);
+  }
+  80% {
+    opacity: 0.8;
+    transform: rotate(calc(var(--i) * 25deg)) translateY(-90px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(calc(var(--i) * 25deg)) translateY(-120px) scale(0.8);
+  }
+}
+
+.fireworks-centered {
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 1001;
+  pointer-events: none;
+}
+
+.fireworks-check {
+  font-size: 5rem;
+  color: #ffe066;
+  text-shadow: 0 0 32px #fff, 0 0 64px #ffe066, 0 0 8px #ffd700;
+  margin-bottom: 24px;
+  animation: popCongrats 0.7s cubic-bezier(.23,1.12,.32,1.01);
+  filter: drop-shadow(0 0 24px #ffe06688);
+}
+
+.congrats-overlay-full {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.12);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.fireworks-full {
+  position: absolute;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.firework-full {
+  position: absolute;
+  width: 0; height: 0;
+  animation: firework-burst-full 1.4s cubic-bezier(.23,1.12,.32,1.01) both;
+}
+
+@keyframes firework-burst-full {
+  0% { opacity: 0; transform: scale(0.5); }
+  30% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.7; transform: scale(1); }
+}
+
+.firework-particle-full {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 12px; height: 22px;
+  border-radius: 6px;
+  opacity: 0.92;
+  transform: rotate(calc(var(--i) * 20deg)) translateY(-10px) scale(0.7);
+  animation: firework-particle-explode-full 1.4s cubic-bezier(.23,1.12,.32,1.01) both;
+  animation-delay: inherit;
+  box-shadow: 0 0 8px #fff8, 0 0 16px #ffe06688;
+}
+
+@keyframes firework-particle-explode-full {
+  0% {
+    opacity: 0.7;
+    transform: rotate(calc(var(--i) * 20deg)) translateY(-10px) scale(0.7);
+  }
+  40% {
+    opacity: 1;
+    transform: rotate(calc(var(--i) * 20deg)) translateY(-70px) scale(1.2);
+  }
+  80% {
+    opacity: 0.8;
+    transform: rotate(calc(var(--i) * 20deg)) translateY(-120px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(calc(var(--i) * 20deg)) translateY(-180px) scale(0.8);
+  }
+}
+
+.fireworks-stars {
+  position: absolute;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.star-burst {
+  position: absolute;
+  animation: star-burst-anim 1.2s cubic-bezier(.23,1.12,.32,1.01) both;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 12px #fff8) drop-shadow(0 0 24px #ffe06688);
+  will-change: transform, opacity;
+}
+
+@keyframes star-burst-anim {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-30deg);
+    filter: blur(2px);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.2) rotate(8deg);
+    filter: blur(0);
+  }
+  80% {
+    opacity: 0.9;
+    transform: scale(1.05) rotate(-8deg);
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7) rotate(24deg);
+    filter: blur(2px);
+  }
+}
+
+@media (max-width: 600px) {
+  .congrats-message {
+    font-size: 1.5rem;
+    padding: 0;
+  }
+  .confetti-piece {
+    width: 10px;
+    height: 16px;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .container {
     padding: 10% 10%;
