@@ -1,5 +1,5 @@
 // src/TodoItem.tsx
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { ThemeContext } from "./ThemeContext";
@@ -26,31 +26,21 @@ function TodoItem({ todo, index, onEdit, onDelete, onComplete, isNew, isDeleting
   const [showDust, setShowDust] = useState(false);
   const [particles, setParticles] = useState<any[]>([]);
 
-  function getDustColor() {
+  const getDustColor = useCallback(() => {
     if (theme === "dark") {
-      // bright golds, whites, yellows for dark mode
       const colors = [
-        "#ffe066", // gold
-        "#fff9c4", // light yellow
-        "#fff",    // white
-        "#ffd700", // gold
-        "#f6e05e"  // yellow
+        "#ffe066", "#fff9c4", "#fff", "#ffd700", "#f6e05e"
       ];
       return colors[Math.floor(Math.random() * colors.length)];
     } else {
-      // browns, dark golds, greys for light mode
       const colors = [
-        "#bfa76f", // brown gold
-        "#a89c8d", // grey brown
-        "#bdb76b", // dark khaki
-        "#8d6748", // brown
-        "#c0b283"  // light brown
+        "#bfa76f", "#a89c8d", "#bdb76b", "#8d6748", "#c0b283"
       ];
       return colors[Math.floor(Math.random() * colors.length)];
     }
-  }
+  }, [theme]);
 
-  function getRandomParticles(count: number) {
+  const getRandomParticles = useCallback((count: number) => {
     return Array.from({ length: count }).map(() => ({
       left: Math.random() * 100,
       top: Math.random() * 100,
@@ -60,7 +50,7 @@ function TodoItem({ todo, index, onEdit, onDelete, onComplete, isNew, isDeleting
       size: 3 + Math.random() * 4,
       color: getDustColor(),
     }));
-  }
+  }, [getDustColor]);
 
   useEffect(() => {
     if (isDeleting) {
