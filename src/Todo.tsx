@@ -24,6 +24,7 @@ function TodoApp(props: TodoAppProps) {
   const { theme } = useContext(ThemeContext);  // Current theme (light or dark)
   const [lastAddedIndex, setLastAddedIndex] = useState<number | null>(null);
   const [deletingIndex, setDeletingIndex] = useState<number | null>(null);
+  const [editUpdatedIndex, setEditUpdatedIndex] = useState<number | null>(null);
 
   // Handles input field changes
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,6 +46,7 @@ function TodoApp(props: TodoAppProps) {
     setTodos((prev) => {
       const newTodos = [...prev, { text: currentInputValue, completed: false }];
       setLastAddedIndex(newTodos.length - 1);
+      setTimeout(() => setLastAddedIndex(null), 500); // Reset after animation duration
       return newTodos;
     });
   };
@@ -55,7 +57,9 @@ function TodoApp(props: TodoAppProps) {
       index === todoIndexBeingEdited ? { ...todo, text: currentInputValue } : todo
     );
     setTodos(updatedTodos);
+    setEditUpdatedIndex(todoIndexBeingEdited); // trigger update effect
     setTodoIndexBeingEdited(null);
+    setTimeout(() => setEditUpdatedIndex(null), 700); // match animation duration
   };
 
   // Deletes a todo
@@ -118,6 +122,8 @@ function TodoApp(props: TodoAppProps) {
                 onComplete={toggleTodoComplete}
                 isNew={index === lastAddedIndex}
                 isDeleting={index === deletingIndex}
+                isEditing={index === todoIndexBeingEdited}
+                isEditUpdated={index === editUpdatedIndex}
               />
             ))}
           </ul>

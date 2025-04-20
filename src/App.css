@@ -160,13 +160,140 @@
   }
 }
 
+@keyframes ultraCoolDelete {
+  0% {
+    opacity: 1;
+    filter: none;
+    background: inherit;
+    transform: scale(1) rotate(0deg) skewX(0deg) skewY(0deg) translateX(0);
+    box-shadow: 0 0 0px #fff0;
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  10% {
+    background: #ffe066;
+    box-shadow: 0 0 16px #ffe06688;
+    filter: brightness(1.1);
+  }
+  30% {
+    filter: brightness(1.3) blur(1px);
+    transform: scale(1.08, 0.92) rotate(-3deg) skewX(-8deg) skewY(2deg) translateX(12px);
+    background: #fff3cd;
+    box-shadow: 0 0 32px #ffe066cc;
+  }
+  50% {
+    filter: brightness(1.5) blur(2px);
+    transform: scale(0.85, 1.15) rotate(6deg) skewX(12deg) skewY(-6deg) translateX(48px);
+    background: #f8d7da;
+    box-shadow: 0 0 48px #ff6f6188;
+    clip-path: inset(0% 40% 0% 0%);
+  }
+  70% {
+    opacity: 0.5;
+    filter: brightness(1.7) blur(6px) grayscale(0.5);
+    transform: scale(1.2, 0.7) rotate(-12deg) skewX(-16deg) skewY(8deg) translateX(100px);
+    background: #d1ecf1;
+    box-shadow: 0 0 64px #17a2b888;
+    clip-path: inset(0% 80% 0% 0%);
+  }
+  85% {
+    opacity: 0.2;
+    filter: brightness(2) blur(12px) grayscale(1);
+    transform: scale(0.5, 1.4) rotate(24deg) skewX(24deg) skewY(-12deg) translateX(180px);
+    background: #fff0;
+    box-shadow: 0 0 0px #fff0;
+    clip-path: inset(0% 100% 0% 0%);
+  }
+  100% {
+    opacity: 0;
+    filter: brightness(2.5) blur(24px) grayscale(1);
+    transform: scale(0.2, 2) rotate(36deg) skewX(36deg) skewY(-24deg) translateX(300px);
+    background: #fff0;
+    box-shadow: 0 0 0px #fff0;
+    clip-path: inset(0% 100% 0% 0%);
+  }
+}
+
+@keyframes editPulse {
+  0% {
+    box-shadow: 0 0 0px 0px #4fd1c5, 0 0 0px 0px #fff;
+    background: inherit;
+    transform: scale(1);
+  }
+  30% {
+    box-shadow: 0 0 16px 4px #4fd1c5, 0 0 8px 2px #fff;
+    background: #e0fcff;
+    transform: scale(1.04);
+  }
+  60% {
+    box-shadow: 0 0 32px 8px #4fd1c5, 0 0 16px 4px #fff;
+    background: #b2f5ea;
+    transform: scale(1.07);
+  }
+  100% {
+    box-shadow: 0 0 0px 0px #4fd1c5, 0 0 0px 0px #fff;
+    background: inherit;
+    transform: scale(1);
+  }
+}
+
+@keyframes ultraCoolUpdate {
+  0% {
+    background: #b2f5ea;
+    box-shadow: 0 0 0px 0px #38b2ac;
+    filter: none;
+    transform: scale(1) rotate(0deg);
+  }
+  20% {
+    background: #81e6d9;
+    box-shadow: 0 0 16px 4px #38b2ac;
+    filter: brightness(1.2);
+    transform: scale(1.05) rotate(-2deg);
+  }
+  40% {
+    background: #4fd1c5;
+    box-shadow: 0 0 32px 8px #38b2ac;
+    filter: brightness(1.4) blur(1px);
+    transform: scale(1.1) rotate(2deg);
+  }
+  60% {
+    background: #f6e05e;
+    box-shadow: 0 0 48px 12px #ecc94b;
+    filter: brightness(1.6) blur(2px);
+    transform: scale(1.15) rotate(-4deg);
+  }
+  80% {
+    background: #fbb6ce;
+    box-shadow: 0 0 32px 8px #ed64a6;
+    filter: brightness(1.3) blur(1px);
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    background: inherit;
+    box-shadow: 0 0 0px 0px #38b2ac;
+    filter: none;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
 .todo-animate {
   animation: fadeInUp 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .vanish {
-  animation: shatterDelete 0.6s cubic-bezier(0.4, 0.2, 0.2, 1) forwards;
-  will-change: opacity, transform, filter, background, box-shadow;
+  animation: ultraCoolDelete 0.8s cubic-bezier(0.4, 0.2, 0.2, 1) forwards;
+  will-change: opacity, transform, filter, background, box-shadow, clip-path;
+}
+
+.editing {
+  animation: editPulse 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  z-index: 1;
+  position: relative;
+}
+
+.edit-updated {
+  animation: ultraCoolUpdate 1s cubic-bezier(0.4, 0.2, 0.2, 1);
+  z-index: 1;
+  position: relative;
 }
 
 /*=============================

@@ -16,11 +16,13 @@ interface TodoItemProps {
   onComplete: (index: number) => void;
   isNew?: boolean;
   isDeleting?: boolean;
+  isEditing?: boolean;
+  isEditUpdated?: boolean;
 }
 
-function TodoItem({ todo, index, onEdit, onDelete, onComplete, isNew, isDeleting }: TodoItemProps) {
+function TodoItem({ todo, index, onEdit, onDelete, onComplete, isNew, isDeleting, isEditing, isEditUpdated }: TodoItemProps) {
   return (
-    <div className={`task-list ${todo.completed ? "completed" : ""} listStyle${isNew ? " todo-animate" : ""}${isDeleting ? " vanish" : ""}`}>
+    <div className={`task-list ${todo.completed ? "completed" : ""} listStyle${isNew && !isEditUpdated ? " todo-animate" : ""}${isDeleting ? " vanish" : ""}${isEditing ? " editing" : ""}${isEditUpdated ? " edit-updated" : ""}`}>
        <div>
        <input
         className="checkbox"
