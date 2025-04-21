@@ -2,9 +2,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: white; /* Default background color */
@@ -22,3 +20,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card, .form, .input-style, .btn, .task-list-part, ul, li, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Coolest look for headings and todo UI */
+h1, h2, h3, h4, h5, h6, .header, .main-title {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Add a little pop to todo items */
+li, .task-list-part {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+}
+
+
