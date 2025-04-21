@@ -6,7 +6,7 @@ import ThemeToggleButton from "./ThemeToggleButton";
 import TodoItem from "./TodoItem";
 import { ThemeContext } from "./ThemeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesomeIcon
-import { faEdit } from "@fortawesome/free-solid-svg-icons"; // Import the faEdit icon
+import { faEdit, faCheck } from "@fortawesome/free-solid-svg-icons"; // Import the faEdit and faCheck icons
 
 interface Todo {
   text: string;
@@ -76,7 +76,7 @@ function TodoApp(props: TodoAppProps) {
     setTimeout(() => {
       setTodos((prev) => prev.filter((_, i) => i !== index));
       setDeletingIndex(null);
-    }, 500); // Match the vanish animation duration
+    }, 900); // Increased timeout to match animation and height collapse
   };
 
   // Sets the todo for editing
@@ -134,7 +134,7 @@ function TodoApp(props: TodoAppProps) {
             />
             <button className="btn" type="submit">
               {todoIndexBeingEdited !== null ? (
-                <FontAwesomeIcon icon={faEdit} className="icon" />
+                <FontAwesomeIcon icon={faCheck} className="icon add-check" />
               ) : (
                 "+"
               )}

@@ -42,9 +42,45 @@
   100% { opacity: 0; transform: scale(0.7) rotate(24deg); filter: blur(2px); }
 }
 
+@keyframes dust-float {
+  0% { opacity: 1; transform: translate(0,0) scale(1); }
+  80% { opacity: 0.7; }
+  100% { opacity: 0; transform: translate(var(--dx,0), var(--dy,0)) scale(0.7); }
+}
+
 /* Animation classes */
 .todo-animate { animation: fadeInUp 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
 .vanish { animation: ultraCoolDelete 0.8s cubic-bezier(0.4, 0.2, 0.2, 1) forwards; will-change: opacity, transform, filter, background, box-shadow, clip-path; }
 .edit-updated { animation: ultraCoolUpdate 1s cubic-bezier(0.4, 0.2, 0.2, 1); z-index: 1; position: relative; }
 .count-animate { display: inline-block; animation: countUpEffect 0.6s cubic-bezier(0.4, 0.2, 0.2, 1); }
 .star-burst { animation: star-burst-anim 1.2s cubic-bezier(.23,1.12,.32,1.01) both; opacity: 0.85; filter: drop-shadow(0 0 12px #fff8) drop-shadow(0 0 24px #ffe06688); will-change: transform, opacity; }
+
+/* Smooth height collapse for todo items */
+.task-list {
+  transition: height 0.4s cubic-bezier(0.4, 0.2, 0.2, 1), opacity 0.3s, margin 0.4s;
+  overflow: visible;
+}
+
+.task-list.vanish {
+  height: 0 !important;
+  margin: 0 !important;
+  opacity: 0;
+  animation: ultraCoolDelete 0.9s cubic-bezier(0.4, 0.2, 0.2, 1) forwards;
+  transition: height 0.4s cubic-bezier(0.4, 0.2, 0.2, 1), opacity 0.3s, margin 0.4s;
+}
+
+/* Smoother dust particles */
+.dust-container {
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+.dust-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.85;
+  will-change: transform, opacity;
+  animation: dust-float 0.7s cubic-bezier(0.4, 0.2, 0.2, 1) forwards;
+}

@@ -40,6 +40,7 @@ function TodoItem({ todo, index, onEdit, onDelete, onComplete, isNew, isDeleting
     }
   }, [theme]);
 
+  // Restore original getRandomParticles
   const getRandomParticles = useCallback((count: number) => {
     return Array.from({ length: count }).map(() => ({
       left: Math.random() * 100,
@@ -52,18 +53,30 @@ function TodoItem({ todo, index, onEdit, onDelete, onComplete, isNew, isDeleting
     }));
   }, [getDustColor]);
 
+  // Only add minimal smooth height collapse
+  const [itemHeight, setItemHeight] = useState<number | undefined>(undefined);
+  const itemRef = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (itemRef.current && !isDeleting) {
+      setItemHeight(undefined); // Let CSS handle height
+    }
+  }, [todo.text, isDeleting]);
+
   useEffect(() => {
     if (isDeleting) {
       setParticles(getRandomParticles(36));
       setShowDust(true);
       setTimeout(() => setShowDust(false), 700);
+      setTimeout(() => setItemHeight(0), 400); // Collapse after dust
     }
   }, [isDeleting, theme, getRandomParticles]);
 
   return (
     <div
-      className={`task-list ${todo.completed ? "completed" : ""} listStyle${isNew && !isEditUpdated ? " todo-animate" : ""}${isDeleting ? " vanish" : ""}${isEditing ? " editing" : ""}${isEditUpdated ? " edit-updated" : ""}`}
-      style={{ position: "relative", overflow: "visible" }}
+      ref={itemRef}
+      className={`task-list ${todo.completed ? "completed" : ""} listStyle${isNew && !isEditUpdated ? " todo-animate" : ""}${isDeleting ? " vanish" : ""}${isEditing ? " editing editing-active" : ""}${isEditUpdated ? " edit-updated" : ""}`}
+      style={{ position: "relative", overflow: "visible", height: itemHeight, transition: itemHeight !== undefined ? 'height 0.4s cubic-bezier(0.4, 0.2, 0.2, 1)' : undefined }}
     >
       <div>
         <input
@@ -72,10 +85,10 @@ function TodoItem({ todo, index, onEdit, onDelete, onComplete, isNew, isDeleting
           checked={todo.completed}
           onChange={() => onComplete(index)}
         />
-        {todo.text}
+        <span className={isEditing ? "editing-label" : ""}>{todo.text}</span>
       </div>
       <div>
-        <button className="icons" onClick={() => onEdit(index)}>
+        <button className={`icons${isEditing ? " editing-btn-active" : ""}`} onClick={() => onEdit(index)}>
           <FontAwesomeIcon icon={faEdit} className="icon" />
         </button>
         <button className="icons" onClick={() => onDelete(index)}>
