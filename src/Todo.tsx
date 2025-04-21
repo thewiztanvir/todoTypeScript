@@ -6,7 +6,7 @@ import ThemeToggleButton from "./ThemeToggleButton";
 import TodoItem from "./TodoItem";
 import { ThemeContext } from "./ThemeContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesomeIcon
-import { faEdit, faCheck } from "@fortawesome/free-solid-svg-icons"; // Import the faEdit and faCheck icons
+import { faCheck } from "@fortawesome/free-solid-svg-icons"; // Only import faCheck, remove unused faEdit
 
 interface Todo {
   text: string;
