@@ -12,8 +12,11 @@ body.light {
   background-color:white; /* Light theme background color */
 }
 
+/* Remove gradient and box-shadow from body.dark to avoid double background effect */
 body.dark {
-  background-color: #121212; /* Dark theme background color */
+  /* Apply the same gradient as .container.dark for full-page effect */
+  background: linear-gradient(135deg, #1a0033 0%, #2d0066 60%, #8f00ff 100%) fixed;
+  color: #e0d7ff;
 }
 
 code {
