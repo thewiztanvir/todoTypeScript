@@ -7,18 +7,20 @@
 =============================*/
 
 .container.light {
-  background-color: white;
-  color: black;
+  
+  color: #2a2e3a;
+  box-shadow: 0 0 32px 0 #b6e4f9cc inset;
 }
 
 .container.dark {
   color: #e0d7ff;
-  /* Remove all background properties, let body handle background */
 }
 
 .container.light .input-style {
-  background: #e3d9d9;
-  color: rgb(35, 33, 33);
+  background: linear-gradient(120deg, #c7d6f9 0%, #b8f7e6 100%);
+  color: #2a2e3a;
+  border: 1.5px solid #7e9fdc; /* More visible border */
+  box-shadow: 0 0 12px #b6e4f9aa, 0 0 2px #b8f7e6;
 }
 
 .container.dark .input-style {
@@ -28,10 +30,24 @@
   box-shadow: 0 0 8px #8f00ff55;
 }
 
+.container.light .input-style:focus {
+  outline: none;
+  border-color: #7be7e7;
+  box-shadow: 0 0 12px #b6e4f9cc, 0 0 2px #b8f7e6;
+}
+
+.container.dark .input-style:focus {
+  outline: none;
+  border-color: #e040fb;
+  box-shadow: 0 0 12px #8f00ffcc, 0 0 2px #fff2;
+}
+
 .container.light .listStyle {
-  background: #e5dfdf;
-  color: rgb(37, 35, 35);
-  box-shadow: none;
+  background: linear-gradient(120deg, #c7d6f9 60%, #b8f7e6 100%);
+  color: #2a2e3a;
+  box-shadow: 0 0 24px #b6e4f9bb, 0 0 2px #b8f7e6cc;
+  border: 1.5px solid #4176d9;
+  backdrop-filter: blur(2px);
 }
 
 .container.dark .listStyle {
@@ -43,8 +59,10 @@
 }
 
 .container.light .btn {
-  background-color: #1F2936;
-  color: white;
+  background: linear-gradient(135deg, #b6e4f9 0%, #b8f7e6 100%);
+  color: #2a2e3a;
+  box-shadow: 0 0 16px #7be7e7aa, 0 0 2px #b8f7e6;
+  border: 1.5px solid #4176d9; 
 }
 
 .container.dark .btn {
@@ -54,9 +72,33 @@
   border: 1.5px solid #8f00ff;
 }
 
+.container.light .btn:active {
+  border: 2px solid #7be7e7;
+  box-shadow: 0 0 24px #b6e4f9cc;
+}
+
+.container.dark .btn:active {
+  border: 2px solid #e040fb;
+  box-shadow: 0 0 18px #8f00ffcc;
+}
+
+.container.light .btn:hover {
+  background: linear-gradient(135deg, #b8f7e6 0%, #c7d6f9 100%);
+  color: #2a2e3a;
+  box-shadow: 0 0 32px #7be7e7cc, 0 0 2px #b8f7e6;
+}
+
+.container.dark .btn:hover {
+  background: #a020f0;
+  color: #fff;
+  box-shadow: 0 0 24px #8f00ffcc, 0 0 2px #fff2;
+}
+
 .container.light .theme-toggle {
-  background-color: #333;
-  color: white;
+  background: linear-gradient(135deg, #b6e4f9 0%, #b8f7e6 100%);
+  color: #2a2e3a;
+  border: 1.5px solid #4176d9; 
+  box-shadow: 0 0 12px #b6e4f955;
 }
 
 .container.dark .theme-toggle {
@@ -67,9 +109,10 @@
 }
 
 .container.light .header-text {
-  background-color: #8e8080;
-  color: white;
-  border-color: #333;
+  background: linear-gradient(135deg, #b6e4f9 0%, #e0c7f9 100%);
+  color: #2a2e3a;
+  border-color: #4176d9; 
+  box-shadow: 0 0 24px #e0c7f9bb, 0 0 8px #b8f7e6cc;
 }
 
 .container.dark .header-text {
@@ -80,7 +123,9 @@
 }
 
 .container.light .header {
-  box-shadow: inset 0 0 5px rgb(37, 36, 35);
+  box-shadow: 0 0 32px #e0c7f9bb, 0 0 2px #b8f7e6cc;
+  border: 1.5px solid #4176d9; 
+  background: linear-gradient(120deg, #e0c7f9cc 0%, #b8f7e6cc 100%);
 }
 
 .container.dark .header {
@@ -91,9 +136,9 @@
 
 /* Editing state for todo item - light mode */
 .container.light .task-list.editing-active {
-  border: 2px solid #1F2936;
-  box-shadow: 0 0 5px rgba(31, 41, 54, 0.5);
-  background: #f5f2e7;
+  border: 2px solid #5b7fdc; /* Even more visible for editing state */
+  box-shadow: 0 0 16px #b6e4f9cc;
+  background: linear-gradient(135deg, #e0c7f9 0%, #b8f7e6 100%);
 }
 
 /* Editing state for todo item - dark mode */
@@ -104,7 +149,7 @@
 }
 
 .container.light .add-check {
-  color: white !important;
+  color: #7be7e7 !important;
 }
 
 .container.dark .add-check {
@@ -173,8 +218,8 @@
   margin: 0 5px;
 }
 .icon {
-  color: rgb(126, 111, 73); /* Neutral/dark for light mode */
-  text-shadow: none;
+  color: #7be7e7;
+  text-shadow: 0 0 12px #b6e4f9bb, 0 0 8px #e0c7f9bb;
 }
 
 .container.dark .icon {
@@ -199,18 +244,6 @@
   border: 2px solid transparent;
   transition: all 0.3s ease;
   margin: 8px 0;
-}
-
-.container.light .input-style:focus {
-  outline: none;
-  border-color: #1F2936;
-  box-shadow: 0 0 5px rgba(31, 41, 54, 0.5);
-}
-
-.container.dark .input-style:focus {
-  outline: none;
-  border-color: #e040fb;
-  box-shadow: 0 0 12px #8f00ffcc, 0 0 2px #fff2;
 }
 
 .listStyle {
@@ -288,12 +321,6 @@
 .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.container.dark .btn:hover {
-  background: #a020f0;
-  color: #fff;
-  box-shadow: 0 0 24px #8f00ffcc, 0 0 2px #fff2;
 }
 
 .dust-container {
