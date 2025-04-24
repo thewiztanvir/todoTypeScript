@@ -9,10 +9,18 @@ body {
 }
 
 body.light {
-  background-color:white; /* Light theme background color */
+  background: linear-gradient(135deg, #b6e4f9 0%, #c7d6f9 60%, #b8f7e6 100%) fixed;
+  border: none;
+  box-shadow: none;
+  outline: none;
 }
 
-/* Remove gradient and box-shadow from body.dark to avoid double background effect */
+html, body {
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
 body.dark {
   /* Apply the same gradient as .container.dark for full-page effect */
   background: linear-gradient(135deg, #1a0033 0%, #2d0066 60%, #8f00ff 100%) fixed;
